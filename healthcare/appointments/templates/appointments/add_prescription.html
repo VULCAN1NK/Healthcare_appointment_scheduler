@@ -1,0 +1,19 @@
+<!-- templates/appointments/add_prescription.html -->
+{% extends "appointments/base.html" %}
+
+{% block title %}Add Prescription{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Add Prescription for {{ appointment.patient.name }}</h3>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Add Prescription</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

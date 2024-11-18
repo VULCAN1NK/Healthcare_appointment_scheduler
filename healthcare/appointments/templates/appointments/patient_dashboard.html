@@ -1,0 +1,24 @@
+<!-- templates/appointments/patient_dashboard.html -->
+{% extends "appointments/base.html" %}
+
+{% block title %}Patient Dashboard{% endblock %}
+
+{% block content %}
+<h2 class="mt-3">My Appointments</h2>
+<div class="card">
+    <div class="card-body">
+        <ul class="list-group">
+            {% for appointment in appointments %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>With Dr. {{ appointment.doctor.name }}</strong> - {{ appointment.date }} at {{ appointment.time }}
+                </div>
+                {% if appointment.prescription %}
+                <a href="{% url 'view_prescription' appointment.prescription.id %}" class="btn btn-success btn-sm">View Prescription</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
