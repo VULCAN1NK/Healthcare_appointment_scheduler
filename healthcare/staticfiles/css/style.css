@@ -1,0 +1,45 @@
+
+
+.card {
+    margin-top: 20px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+body {
+    background-color: #f8f9fa;
+    padding-top: 56px;
+     }
+.navbar {
+    background-color: #343a40;
+        }
+.navbar-brand, .navbar-nav .nav-link {
+    color: #fff !important;
+        }
+.container {
+     margin-top: 20px;
+        }
+.card {
+    margin-bottom: 20px;
+        }
+.btn-primary, .btn-secondary, .btn-success {
+     margin-right: 10px;
+        }
+ .form-group label {
+    font-weight: bold;
+        }
+.form-group input, .form-group select {
+     border-radius: 0.25rem;
+        }

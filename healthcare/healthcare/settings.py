@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appointments',
-    'healthcare',
 ]
 
 
@@ -87,9 +86,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'healthcare.wsgi.application'
-
-AUTH_USER_MODEL = 'appointments.CustomUser'
-
 
 
 # Database

@@ -13,6 +13,8 @@
                 <div>
                     <strong>{{ appointment.patient.name }}</strong> - {{ appointment.date }} at {{ appointment.time }}
                 </div>
+                <a href="{% url 'doctor_patients' %}">View Patients</a>
+
                 <a href="{% url 'add_prescription' appointment.id %}" class="btn btn-primary btn-sm">Add Prescription</a>
             </li>
             {% endfor %}

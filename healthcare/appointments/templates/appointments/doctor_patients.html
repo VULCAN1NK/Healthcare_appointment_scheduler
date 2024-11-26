@@ -1,0 +1,41 @@
+<!-- templates/appointments/doctor_patients.html -->
+
+{% extends "appointments/base.html" %}
+
+{% block content %}
+    <h2>Patients List</h2>
+    
+    <!-- Check if the doctor has patients -->
+    {% if patients_and_prescriptions %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Email</th>
+                    <th>Prescriptions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in patients_and_prescriptions %}
+                    <tr>
+                        <td>{{ entry.patient.user.username }}</td>
+                        <td>{{ entry.patient.user.email }}</td>
+                        <td>
+                            {% if entry.prescriptions %}
+                                <ul>
+                                    {% for prescription in entry.prescriptions %}
+                                        <li>{{ prescription.date }}: {{ prescription.notes }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>No prescriptions</p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No patients or prescriptions found.</p>
+    {% endif %}
+{% endblock %}

@@ -7,19 +7,20 @@
 
 /* Body styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../images/login.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 /* Container for the login form */
 .container {
-    background: white;
+    background: #c0c0c0;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -64,7 +65,7 @@ input[type="password"]:focus {
 /* Button styling */
 button {
     width: 100%;
-    background: #6a11cb;
+    background: rgb(86, 85, 87);
     color: white;
     padding: 10px;
     border: none;
@@ -75,7 +76,7 @@ button {
 }
 
 button:hover {
-    background: #4e0fba;
+    background: #282728;
 }
 
 /* Error message styling */

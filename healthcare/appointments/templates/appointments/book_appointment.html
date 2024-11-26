@@ -1,6 +1,5 @@
 {% extends "appointments/base.html" %}
 
-
 {% block title %}Book Appointment{% endblock %}
 
 {% block content %}
@@ -12,23 +11,51 @@
                     <h3>Book an Appointment</h3>
                 </div>
                 <div class="card-body">
+                    <!-- Display error messages -->
+                    {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form.non_field_errors }}
+                    </div>
+                    {% endif %}
+
                     <form method="post">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="doctor">Select Doctor</label>
                             {{ form.doctor }}
+                            <!-- Show field-specific errors -->
+                            {% if form.doctor.errors %}
+                            <div class="text-danger">
+                                {{ form.doctor.errors }}
+                            </div>
+                            {% endif %}
                         </div>
                         <div class="form-group">
                             <label for="date">Select Date</label>
                             {{ form.date }}
+                            {% if form.date.errors %}
+                            <div class="text-danger">
+                                {{ form.date.errors }}
+                            </div>
+                            {% endif %}
                         </div>
                         <div class="form-group">
                             <label for="time">Select Time</label>
                             {{ form.time }}
+                            {% if form.time.errors %}
+                            <div class="text-danger">
+                                {{ form.time.errors }}
+                            </div>
+                            {% endif %}
                         </div>
                         <div class="form-group">
                             <label for="reason">Reason for Appointment</label>
                             {{ form.reason }}
+                            {% if form.reason.errors %}
+                            <div class="text-danger">
+                                {{ form.reason.errors }}
+                            </div>
+                            {% endif %}
                         </div>
                         <button type="submit" class="btn btn-primary">Book Appointment</button>
                     </form>

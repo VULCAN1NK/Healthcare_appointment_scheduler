@@ -1,4 +1,3 @@
-<!-- templates/appointments/base.html -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -9,11 +8,14 @@
     <title>{% block title %}Healthcare System{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     {% block extra_head %}{% endblock %}
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a class="navbar-brand" href="{% url 'home' %}">Healthcare System</a>
+        <a class="navbar-brand" href="{% url 'home' %}"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,10 +36,13 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Main content -->
     <div class="container mt-5">
         {% block content %}
         {% endblock %}
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
