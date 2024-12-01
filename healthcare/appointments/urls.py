@@ -16,3 +16,10 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='appointments/login.html'), name='login'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'), 
 ]
+
+from . import views
+
+urlpatterns += [
+    path('about/', views.about, name='about'),
+    path('signup/', views.signup, name='signup'),
+]

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="about-container">
+        <h1>Welcome to Our Healthcare Platform</h1>
+        <p>This platform connects patients and doctors for easy appointment booking and management.</p>
+        <div class="btn-container">
+            <a href="{% url 'login' %}" class="btn">Login</a>
+            <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

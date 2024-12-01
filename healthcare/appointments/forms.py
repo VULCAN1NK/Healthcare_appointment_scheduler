@@ -78,3 +78,17 @@ class PatientForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
         }
+
+from django import forms
+from django.contrib.auth.models import User
+
+class SignupForm(forms.ModelForm):
+    ROLE_CHOICES = [
+        ('doctor', 'Doctor'),
+        ('patient', 'Patient'),
+    ]
+    role = forms.ChoiceField(choices=ROLE_CHOICES, widget=forms.RadioSelect)
+
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'role']
