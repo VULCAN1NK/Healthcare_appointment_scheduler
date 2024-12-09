@@ -4,22 +4,24 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
+    password = models.CharField(max_length=128, default='default123')
     name = models.CharField(max_length=100)
     specialization = models.CharField(max_length=100)
     phone = models.CharField(max_length=15, null=True, blank=True)  # Nullable field
     email = models.EmailField(default='example@example.com')  # Default value for email
 
     def __str__(self):
-        return self.name
+        return self.user.username
 
 class Patient(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
-    name = models.CharField(max_length=100)
-    email = models.EmailField(default='example@example.com')  # Default value for email
-    phone = models.CharField(max_length=15, null=True, blank=True)  # Nullable field
+    name = models.CharField(max_length=150)
+    email = models.EmailField(default='example@example.com')
+    phone = models.CharField(max_length=15, null=True, blank=True)
 
     def __str__(self):
         return self.name
+
 
 class Appointment(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)

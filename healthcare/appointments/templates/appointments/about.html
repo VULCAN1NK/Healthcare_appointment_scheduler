@@ -1,20 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <div class="about-container">
-        <h1>Welcome to Our Healthcare Platform</h1>
-        <p>This platform connects patients and doctors for easy appointment booking and management.</p>
-        <div class="btn-container">
-            <a href="{% url 'login' %}" class="btn">Login</a>
-            <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+{% extends "appointments/base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block navbar %}
+<div class="top-bar" style="position: fixed; top: 0; width: 100%; z-index: 1000; background: transparent; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+    <!-- Logo with Link -->
+    <div class="logo">
+        <a href="{% url 'about' %}" style="text-decoration: none;">
+            <h2 style="color: white; font-size: 1.5rem; font-weight: bold; margin: 0;">Healthcare</h2>
+        </a>
+    </div>
+    <!-- Login & Sign Up Buttons -->
+    <div class="top-buttons">
+        <a href="{% url 'login' %}" class="btn btn-outline-light">Login</a>
+        <a href="{% url 'signup' %}" class="btn btn-light">Sign Up</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="content" style="padding-top: 70px; text-align: center;"> <!-- Adjust padding for better spacing -->
+    <!-- Title Section -->
+    <div class="title-section" style="margin-top: 0px;">
+        <h1 class="display-4 font-weight-bold text-white">About Our Healthcare Platform</h1></br></br></br></br></br>
+        <p class="lead text-white">Our mission is to simplify healthcare appointment scheduling and ensure seamless communication between patients and doctors.</p></br>
+        <p class="lead text-white">To easily avail you booking become a member of this website</p></br>
+        <p class="lead text-white">If you are already a member, then login. If you are a new member, signup to access the website.</p>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="row justify-content-center mt-5">
+        <!-- Card 1 -->
+        <div class="col-md-3 m-3">
+            <div class="card shadow-lg" style="border-radius: 15px; background-color: white;">
+                <div class="card-body text-center">
+                    <h5 class="card-title font-weight-bold">Efficient Scheduling</h5>
+                    <p class="card-text">Easily book appointments and avoid long waiting times.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-3 m-3">
+            <div class="card shadow-lg" style="border-radius: 15px; background-color: white;">
+                <div class="card-body text-center">
+                    <h5 class="card-title font-weight-bold">Trusted Professionals</h5>
+                    <p class="card-text">Connect with experienced and certified healthcare providers.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-3 m-3">
+            <div class="card shadow-lg" style="border-radius: 15px; background-color: white;">
+                <div class="card-body text-center">
+                    <h5 class="card-title font-weight-bold">User-Friendly Interface</h5>
+                    <p class="card-text">Navigate the platform effortlessly with a clean design.</p>
+                </div>
+            </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

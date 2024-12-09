@@ -3,7 +3,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background: url('../images/login.jpg') no-repeat center center fixed;
     background-color: #f4f4f9;
+    background-size: cover;
+    overflow: hidden;
 }
 
 .about-container {

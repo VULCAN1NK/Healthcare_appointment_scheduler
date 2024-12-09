@@ -1,11 +1,47 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Appointment, Prescription, Doctor, Patient
-from .forms import AppointmentForm, PrescriptionForm
+from .forms import AppointmentForm, PrescriptionForm, DoctorSignupForm, PatientSignupForm 
 from django.http import HttpResponseForbidden
 from django.contrib.auth import logout
+from django.contrib.auth.models import Group
+
+def patient_signup(request):
+    if request.method == 'POST':
+        form = PatientSignupForm(request.POST)
+        if form.is_valid():
+            try:
+                # Save the form, which creates both the User and Patient
+                patient = form.save()
+                user = patient.user  # Get the associated User instance
+
+                # Add the user to the "Patients" group
+                patient_group, created = Group.objects.get_or_create(name='Patients')
+                patient_group.user_set.add(user)
+
+                return redirect('patient_dashboard')  # Redirect to patient's dashboard
+            except Exception as e:
+                form.add_error(None, f"An error occurred: {str(e)}")
+    else:
+        form = PatientSignupForm()
+    return render(request, 'signup/patient_signup.html', {'form': form})
+
+
+
+def doctor_signup(request):
+    if request.method == 'POST':
+        form = DoctorSignupForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save doctor data to the database
+            return redirect('doctor_dashboard')  # Redirect to doctor dashboard or another page
+    else:
+        form = DoctorSignupForm()
+    return render(request, 'signup/doctor_signup.html', {'form': form})
+
+
 
 # Home page (accessible to everyone)
+@login_required
 def home(request):
     return render(request, 'appointments/home.html')
 
@@ -34,6 +70,14 @@ def book_appointment(request):
     return render(request, 'appointments/book_appointment.html', {'form': form})
 
 
+@login_required
+def dashboard(request):
+    if request.user.groups.filter(name='Patients').exists():
+        return redirect('patient_dashboard')
+    elif request.user.groups.filter(name='Doctors').exists():
+        return redirect('doctor_dashboard')
+    else:
+        return redirect('home')  # Fallback if no group assigned
 
 # Doctor dashboard (accessible only to doctors)
 @login_required

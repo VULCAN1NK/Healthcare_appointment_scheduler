@@ -1,3 +1,4 @@
+/* General Styling */
 body {
     margin: 0;
     padding: 0;
@@ -8,4 +9,65 @@ body {
     justify-content: center;
     background: url('../images/login.jpg') no-repeat center center fixed;
     background-size: cover;
+}
+
+/* Top Bar Styling */
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Transparent background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+/* Logo Styling */
+.logo h2 {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Title Section Styling */
+.title-section {
+    padding: 20px 0; /* Adjust spacing to place title exactly */
+}
+
+.title-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.title-section p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
 }

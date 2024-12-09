@@ -1,3 +1,4 @@
+
 <!-- templates/appointments/home.html -->
 {% extends "appointments/base.html" %}
 
@@ -11,7 +12,6 @@
     <p class="lead">Simplifying healthcare appointment management for patients and doctors.</p>
     <hr class="my-4">
     <a class="btn btn-primary btn-lg" href="{% url 'book_appointment' %}" role="button">Book Appointment</a>
-    <a class="btn btn-secondary btn-lg" href="{% url 'doctor_dashboard' %}" role="button">Doctor Dashboard</a>
-    <a class="btn btn-success btn-lg" href="{% url 'patient_dashboard' %}" role="button">Patient Dashboard</a>
 </div>
+
 {% endblock %}

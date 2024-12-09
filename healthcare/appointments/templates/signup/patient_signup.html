@@ -1,0 +1,17 @@
+{% extends "appointments/base.html" %}
+
+{% block title %}Patient Signup{% endblock %}
+
+{% block content %}
+<h2>Patient Signup</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if form.non_field_errors %}
+        <div class="error">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+    <button type="submit">Signup</button>
+</form>
+{% endblock %}
